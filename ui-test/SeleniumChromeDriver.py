@@ -18,6 +18,8 @@ class SeleniumChromeDriver:
         chrome_options = Options()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-web-security')
+        chrome_options.addArguments("--no-sandbox")
+        chrome_options.addArguments("--disable-dev-shm-usage")
         driver = webdriver.Chrome(options=chrome_options)
         return driver
 
