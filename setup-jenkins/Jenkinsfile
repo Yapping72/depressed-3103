@@ -62,14 +62,20 @@ pipeline {
                 sh "docker-compose -f simple-app/docker-compose.yml build"
                 sh "docker-compose -f simple-app/docker-compose.yml up -d"
                 sh "docker ps"
-                sh "docker-compose -f setup-jenkins/docker-compose.yml down"
             }
         }
 
         stage('Run UI Tests') {
             steps {
-                
+                sh "python3 --version"
+                sh "python3 -m pip install selenium==4.15.2"
+                sh "python3 -m pip install selenium requests"
+                sh "python3 ui-test/ui_tests.py"
             }
+        }
+
+        stage('Down docker images') {
+            sh "docker-compose -f simple-app/docker-compose.yml down -v"
         }
     } 
 }

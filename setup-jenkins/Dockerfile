@@ -28,8 +28,7 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends
 # Install Python 3
 RUN apt-get update && apt-get install -y python3 python3-pip
-# Install Python packages
-RUN python3 -m pip install selenium requests
+
 # Clean up APT caches to reduce image size
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Switch back to the Jenkins user
