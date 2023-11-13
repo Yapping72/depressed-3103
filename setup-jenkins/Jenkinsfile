@@ -25,7 +25,7 @@ pipeline {
             steps {
                 dependencyCheck additionalArguments: ''' 
                             -o './'
-                            -s './setup-jenkins'
+                            -s '../simple-app'
                             -f 'ALL' 
                             --prettyPrint''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
                 
@@ -45,9 +45,9 @@ pipeline {
                         sh """
                         sonar-scanner \
                         -Dsonar.projectKey=OWASP \
-                        -Dsonar.sources=. \
+                        -Dsonar.sources= ../simple-app \
                         -Dsonar.host.url=http://sonarqube:9000 \
-                        -Dsonar.login=sqp_396c1e5ef4502deef8beebf5ccab9963f14b1361
+                        -Dsonar.login=sqp_391ea90ca5447812516cda004b73c1ad54166898
                         """
                     }
                 }
