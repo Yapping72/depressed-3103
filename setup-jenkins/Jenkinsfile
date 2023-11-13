@@ -45,7 +45,7 @@ pipeline {
                         sh """
                         sonar-scanner \
                         -Dsonar.projectKey=OWASP \
-                        -Dsonar.sources= . \
+                        -Dsonar.sources=. \
                         -Dsonar.host.url=http://sonarqube:9000 \
                         -Dsonar.login=sqp_391ea90ca5447812516cda004b73c1ad54166898
                         """
@@ -70,7 +70,7 @@ pipeline {
                 sh "python3 --version"
                 sh "python3 -m pip install selenium==4.15.2"
                 sh "python3 -m pip install selenium requests"
-                sh "python3 ../ui-test/ui_tests.py"
+                sh "python3 ui-test/ui_tests.py"
             }
         }
 
