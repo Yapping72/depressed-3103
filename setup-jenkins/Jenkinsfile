@@ -75,7 +75,9 @@ pipeline {
         }
 
         stage('Down docker images') {
-            sh "docker-compose -f simple-app/docker-compose.yml down -v"
+            steps{
+                sh "docker-compose -f simple-app/docker-compose.yml down -v"
+            }
         }
     } 
 }
