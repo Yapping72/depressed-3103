@@ -1,6 +1,7 @@
 # Docker Containers
 The [docker-compose.yml](docker-compose.yml) will create 4 containers - Nginx, Jenkins, SonarQube and PostgresSQL DB.
 * Jenkins is built using a custom Dockerfile that installs docker, docker-compose, docker cli and 3 jenkins plugins - BlueOcean, OWASP Dependency Checks and SonarQube Scanner.
+* Jenkins image will also contain Chrome and Selenium libraries to enable UI testing with selenium. 
 
 ## Setting Jenkins with OWASP Dependency Checks and SonarQube
 1. Dockerfile will build a Jenkins image with the following plugins:

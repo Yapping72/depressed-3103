@@ -54,15 +54,21 @@ pipeline {
             }
         }
 
-        stage('Build, start docker and kill images'){
+        stage('Build and start docker images'){
             steps {
                 sh "dockerd &"
                 sh "docker --version"
-                sh "docker-compose -f setup-jenkins/docker-compose.yml down"
-                sh "docker-compose -f setup-jenkins/docker-compose.yml build"
-                sh "docker-compose -f setup-jenkins/docker-compose.yml up -d"
+                sh "docker-compose -f simple-app/docker-compose.yml down"
+                sh "docker-compose -f simple-app/docker-compose.yml build"
+                sh "docker-compose -f simple-app/docker-compose.yml up -d"
                 sh "docker ps"
                 sh "docker-compose -f setup-jenkins/docker-compose.yml down"
+            }
+        }
+
+        stage('Run UI Tests') {
+            steps {
+                
             }
         }
     } 
