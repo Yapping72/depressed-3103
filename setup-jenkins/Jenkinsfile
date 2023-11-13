@@ -68,8 +68,8 @@ pipeline {
         stage('Run UI Tests') {
             steps {
                 sh "python3 --version"
-                sh "python3 -m pip install --user selenium==4.15.2"
-                sh "python3 -m pip install --user selenium requests"
+                sh "python3 -m pip install --user selenium==4.15.2 --break-system-packages"
+                sh "python3 -m pip install --user selenium requests --break-system-packages"
                 sh "python3 ui-test/ui_tests.py"
             }
         }
